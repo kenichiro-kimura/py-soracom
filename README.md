@@ -12,9 +12,11 @@ SORACOM API client library for Python
   - SORACOM_USERNAME
   - SORACOM_OPERATOR_ID
   - SORACOM_COVERAGE
-  if you use root account, you need to set SORACOM_EMAIL and SORACOM_PASSWORD.
-  if you use authKeyId, you need to set SORACOM_AUTH_KEY_ID and SORACOM_AUTH_KEY.
-  if you use SAM user, you need to set SORACOM_USERNAME and SORACOM_OPERATOR_ID and SORACOM_PASSWORD.  
+   
+  if you use root account, you need to set SORACOM_EMAIL and SORACOM_PASSWORD.  
+  if you use authKeyId, you need to set SORACOM_AUTH_KEY_ID and SORACOM_AUTH_KEY.  
+  if you use SAM user, you need to set SORACOM_USERNAME and SORACOM_OPERATOR_ID and SORACOM_PASSWORD.   
+  if you use global coverage, you need to set SORACOM_COVERAGE to 'g'
 
 2. install urllib3
   ```bash
