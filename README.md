@@ -28,34 +28,40 @@ SORACOM API client library for Python
 ```python
 from py-soracom.soracom import Soracom
 from py-soracom.authRequest import AuthRequest
+from py-soracom.auth import auth
 import json
+import py-soracom.sora_cam
 
 authRequest = AuthRequest()
 api = Soracom(authRequest)
-api.auth()
-sora_cameDevices = api.listSoraCamDevices().data
+auth(api)
+sora_cameDevices = sora_cam.listSoraCamDevices(api).data
 for i in sora_cameDevices:
     deviceId = i['deviceId']
-    device = api.getSoraCamDevice(deviceId).data
+    device = sora_cam.getSoraCamDevice(api,deviceId).data
     print(device)
 ```
 
 ## supported APIs
 
-- listSoraCamDevices
-- getSoraCamDevice
-- getSoraCamDeviceExportUsage
-- listSoraCamDeviceImageExportsForDevice
-- exportSoraCamDeviceRecordedImage
-- getSoraCamDeviceExportedImage
-- getSoraCamDeviceStreamingVideo
-- listSoracamDeviceVideoExportsForDevice
-- exportSoraCamDeviceRecordedVideo
-- getSoraCamDeviceExportedVideo
-- listSoraCamDeviceImageExports
-- listSoraCamDeviceVideoExports
-- listSoraCamLicensePacks
+- auth
+  - auth
+  - logout
+- sora_cam
+  - listSoraCamDevices
+  - getSoraCamDevice
+  - getSoraCamDeviceExportUsage
+  - listSoraCamDeviceImageExportsForDevice
+  - exportSoraCamDeviceRecordedImage
+  - getSoraCamDeviceExportedImage
+  - getSoraCamDeviceStreamingVideo
+  - listSoracamDeviceVideoExportsForDevice
+  - exportSoraCamDeviceRecordedVideo
+  - getSoraCamDeviceExportedVideo
+  - listSoraCamDeviceImageExports
+  - listSoraCamDeviceVideoExports
+  - listSoraCamLicensePacks
 
 possible arguments are described in https://users.soracom.io/ja-jp/tools/api/reference/
 
-if you want to use other APIs, please add method to soracom.py and send pull request, or use callAPI method.
+if you want to use other APIs, please add a module and send pull request, or use apiClient.callAPI method.
