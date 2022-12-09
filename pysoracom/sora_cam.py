@@ -1,59 +1,59 @@
 from pysoracom.apiClient import callAPI
 
-def listSoraCamDevices(self):
-    return callAPI(self,url="/sora_cam/devices", method="GET")
+def listSoraCamDevices(api):
+    return callAPI(api,url="/sora_cam/devices", method="GET")
 
-def getSoraCamDevice(self,deviceID):
-    return callAPI(self,url="/sora_cam/devices/" + deviceID, method="GET")
+def getSoraCamDevice(api,deviceID):
+    return callAPI(api,url="/sora_cam/devices/" + deviceID, method="GET")
 
-def getSoraCamDeviceExportUsage(self,deviceID):
-    return callAPI(self,url="/sora_cam/devices/" + deviceID + "/exports/usage", method="GET")
+def getSoraCamDeviceExportUsage(api,deviceID):
+    return callAPI(api,url="/sora_cam/devices/" + deviceID + "/exports/usage", method="GET")
 
-def listSoraCamDeviceImageExportsForDevice(self,deviceID,**kwargs):
+def listSoraCamDeviceImageExportsForDevice(api,deviceID,**kwargs):
     url = "/sora_cam/devices/" + deviceID + "/images/exports" + apiClient.kwargsToArgs(kwargs)
-    return callAPI(self,url=url, method="GET")
+    return callAPI(api,url=url, method="GET")
 
-def exportSoraCamDeviceRecordedImage(self,deviceID,time):
+def exportSoraCamDeviceRecordedImage(api,deviceID,time):
     body = {
         "time": time
     }
-    return callAPI(self,url="/sora_cam/devices/" + deviceID + "/images/exports", method="POST",body=body)
+    return callAPI(api,url="/sora_cam/devices/" + deviceID + "/images/exports", method="POST",body=body)
 
-def getSoraCamDeviceExportedImage(self,deviceID,exportID):
-    return callAPI(self,url="/sora_cam/devices/" + deviceID + "/images/exports/" + exportID, method="GET")
+def getSoraCamDeviceExportedImage(api,deviceID,exportID):
+    return callAPI(api,url="/sora_cam/devices/" + deviceID + "/images/exports/" + exportID, method="GET")
 
-def getSoraCamDeviceStreamingVideo(self,deviceID,**kwargs):
+def getSoraCamDeviceStreamingVideo(api,deviceID,**kwargs):
     url = "/sora_cam/devices/" + deviceID + "/stream" + apiClient.kwargsToArgs(kwargs)
-    return callAPI(self,url=url, method="GET")
+    return callAPI(api,url=url, method="GET")
 
-def listSoracamDeviceVideoExportsForDevice(self,deviceID,**kwargs):
+def listSoracamDeviceVideoExportsForDevice(api,deviceID,**kwargs):
     url = "/sora_cam/devices/" + deviceID + "/videos/exports" + apiClient.kwargsToArgs(kwargs)
-    return callAPI(self,url=url, method="GET")
+    return callAPI(api,url=url, method="GET")
 
-def exportSoraCamDeviceRecordedVideo(self,deviceID,fromTime,toTime):
+def exportSoraCamDeviceRecordedVideo(api,deviceID,fromTime,toTime):
     body = {
         "from": fromTime,
         "to": toTime
     }
-    return callAPI(self,url="/sora_cam/devices/" + deviceID + "/videos/exports", method="POST",body=body)
+    return callAPI(api,url="/sora_cam/devices/" + deviceID + "/videos/exports", method="POST",body=body)
 
-def getSoraCamDeviceExportedVideo(self,deviceID,exportID):
-    return callAPI(self,url="/sora_cam/devices/" + deviceID + "/videos/exports/" + exportID, method="GET")
+def getSoraCamDeviceExportedVideo(api,deviceID,exportID):
+    return callAPI(api,url="/sora_cam/devices/" + deviceID + "/videos/exports/" + exportID, method="GET")
 
-def listSoraCamDeviceImageExports(self,**kwargs):
+def listSoraCamDeviceImageExports(api,**kwargs):
     url = "/sora_cam/devices/images/exports" + apiClient.kwargsToArgs(kwargs)
-    return callAPI(self,url=url, method="GET")
+    return callAPI(api,url=url, method="GET")
     
-def listSoraCamDeviceVideoExports(self,**kwargs):
+def listSoraCamDeviceVideoExports(api,**kwargs):
     url = "/sora_cam/devices/videos/exports" + apiClient.kwargsToArgs(kwargs)
-    return callAPI(self,url=url, method="GET")
+    return callAPI(api,url=url, method="GET")
 
-def listSoraCamLicensePacks(self):
-    return callAPI(self,url="/sora_cam/license_packs", method="GET")
+def listSoraCamLicensePacks(api):
+    return callAPI(api,url="/sora_cam/license_packs", method="GET")
 
-def updateSoraCamLicensePackQuantity(self,licensePackID,currentQuantity,desiredQuantity):
+def updateSoraCamLicensePackQuantity(api,licensePackID,currentQuantity,desiredQuantity):
     body = {
         "currentQuantity": currentQuantity,
         "desiredQuantity": desiredQuantity,
     }
-    return callAPI(self,url="/sora_cam/license_packs/" + licensePackID + "/quantity", method="PUT",body=body)
+    return callAPI(api,url="/sora_cam/license_packs/" + licensePackID + "/quantity", method="PUT",body=body)
