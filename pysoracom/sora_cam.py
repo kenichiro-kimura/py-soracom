@@ -1,4 +1,4 @@
-from pysoracom.apiClient import callAPI
+from pysoracom.apiClient import *
 
 def listSoraCamDevices(api):
     return callAPI(api,url="/sora_cam/devices", method="GET")
@@ -10,7 +10,7 @@ def getSoraCamDeviceExportUsage(api,deviceID):
     return callAPI(api,url="/sora_cam/devices/" + deviceID + "/exports/usage", method="GET")
 
 def listSoraCamDeviceImageExportsForDevice(api,deviceID,**kwargs):
-    url = "/sora_cam/devices/" + deviceID + "/images/exports" + apiClient.kwargsToArgs(kwargs)
+    url = "/sora_cam/devices/" + deviceID + "/images/exports" + kwargsToArgs(kwargs)
     return callAPI(api,url=url, method="GET")
 
 def exportSoraCamDeviceRecordedImage(api,deviceID,time):
@@ -23,11 +23,11 @@ def getSoraCamDeviceExportedImage(api,deviceID,exportID):
     return callAPI(api,url="/sora_cam/devices/" + deviceID + "/images/exports/" + exportID, method="GET")
 
 def getSoraCamDeviceStreamingVideo(api,deviceID,**kwargs):
-    url = "/sora_cam/devices/" + deviceID + "/stream" + apiClient.kwargsToArgs(kwargs)
+    url = "/sora_cam/devices/" + deviceID + "/stream" + kwargsToArgs(kwargs)
     return callAPI(api,url=url, method="GET")
 
 def listSoracamDeviceVideoExportsForDevice(api,deviceID,**kwargs):
-    url = "/sora_cam/devices/" + deviceID + "/videos/exports" + apiClient.kwargsToArgs(kwargs)
+    url = "/sora_cam/devices/" + deviceID + "/videos/exports" + kwargsToArgs(kwargs)
     return callAPI(api,url=url, method="GET")
 
 def exportSoraCamDeviceRecordedVideo(api,deviceID,fromTime,toTime):
@@ -41,11 +41,11 @@ def getSoraCamDeviceExportedVideo(api,deviceID,exportID):
     return callAPI(api,url="/sora_cam/devices/" + deviceID + "/videos/exports/" + exportID, method="GET")
 
 def listSoraCamDeviceImageExports(api,**kwargs):
-    url = "/sora_cam/devices/images/exports" + apiClient.kwargsToArgs(kwargs)
+    url = "/sora_cam/devices/images/exports" + kwargsToArgs(kwargs)
     return callAPI(api,url=url, method="GET")
     
 def listSoraCamDeviceVideoExports(api,**kwargs):
-    url = "/sora_cam/devices/videos/exports" + apiClient.kwargsToArgs(kwargs)
+    url = "/sora_cam/devices/videos/exports" + kwargsToArgs(kwargs)
     return callAPI(api,url=url, method="GET")
 
 def listSoraCamLicensePacks(api):
