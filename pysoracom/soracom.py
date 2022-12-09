@@ -1,7 +1,6 @@
 import urllib3
 import json
-from apiResponse import ApiResponse
-import auth
+from pysoracom.auth import logout
 
 class Soracom:
     baseURL = "https://api.soracom.io/v1"
@@ -19,4 +18,4 @@ class Soracom:
 
     def __del__(self):
         if(self.token is not None):
-            auth.logout(self)
+            logout(self)

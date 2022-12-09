@@ -26,11 +26,11 @@ SORACOM API client library for Python
 ## sample code
 
 ```python
-from py-soracom.soracom import Soracom
-from py-soracom.authRequest import AuthRequest
-from py-soracom.auth import auth
+from pysoracom.soracom import Soracom
+from pysoracom.authRequest import AuthRequest
+from pysoracom.auth import auth
 import json
-import py-soracom.sora_cam
+import pysoracom.sora_cam as sora_cam
 
 authRequest = AuthRequest()
 api = Soracom(authRequest)

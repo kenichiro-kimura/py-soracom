@@ -1,4 +1,4 @@
-import apiClient
+from pysoracom.apiClient import callAPI
 
 def auth(self):
     body = {
@@ -10,7 +10,7 @@ def auth(self):
         "operatorId": self.authRequest.OperatiorID,
     }
 
-    response = apiClient.callAPI(self,url="/auth", method="POST",body=body)
+    response = callAPI(self,url="/auth", method="POST",body=body)
 
     if(response.status == 200):
         self.token = response.data['token']
@@ -22,4 +22,4 @@ def auth(self):
         return False
 
 def logout(self):
-    apiClient.callAPI(self,url="/auth/logout", method="POST")
+    callAPI(self,url="/auth/logout", method="POST")

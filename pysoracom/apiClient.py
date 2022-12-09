@@ -1,4 +1,4 @@
-from apiResponse import ApiResponse
+from pysoracom.apiResponse import ApiResponse
 import json
 
 def callAPI(self, **kwargs):
